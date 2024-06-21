@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 250;
     public Animator animator;
     private float x, y;
-    private bool isRunning;
     float currentSpeed;
     public float fuerzaSalto = 8f;
     public bool Grounded;
@@ -25,10 +24,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Grounded)
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 animator.SetBool("Saltar", true);
-                GetComponent<Rigidbody>().AddForce(new Vector3(0, fuerzaSalto,0), ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(new Vector3(0, fuerzaSalto, 0), ForceMode.Impulse);
             }
             animator.SetBool("Grounded", true);
         }
@@ -51,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("Correr", false);
-            currentSpeed= walkSpeed;
+            currentSpeed = walkSpeed;
         }
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
